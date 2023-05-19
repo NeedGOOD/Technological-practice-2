@@ -8,15 +8,7 @@ void pauseAndClear() {
     std::system("cls");
 }
 
-void error() {
-    std::cout << "Invalid input.\n";
-            //   << "Press Enter to continue...\n";
-    // std::string tmp;
-    // std::cin >> tmp;
-    // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    // std::cin.get();
-    // std::system("cls");
-}
+void error() { std::cout << "Invalid input.\n"; }
 
 struct Animal {
     int id;
@@ -82,7 +74,6 @@ public:
             std::cout << animal_type << ' ' << id << ":\n";
 
             std::string sex;
-            // do { } while (!(sex == "Male" || sex == "male") || !(sex == "Female" || sex == "female"));
             std::cout << "Sex: ", std::cin >> sex;
 
             std::string name;
@@ -144,23 +135,14 @@ public:
     }
 
     void buyingAnimal(std::string animal_type, int id, bool have) {
-        // bool have = false;
-
-        // if (!have) {
-        //     std::cout << "There is no such animal.\n";
-        //     return;
-        // }
-
         for (Animal animal : animals) {
             if (animal.type == animal_type) {
-                // if 
                 if (!(id < 0 && id > animal.id) && animal.id == id) {
                     std::cout << "  ID:    " << animal.id << '\n'
                               << "  Sex:   " << animal.sex << '\n'
                               << "  Name:  " << animal.name << '\n'
                               << "  Price: " << animal.price << '\n'
                               << '\n';
-                    // have = true;
                     std::cout << "Purchase completed.\n";
                     have = true;
                     animals_bought.push_back(Animal(id, animal_type, animal.sex, animal.name, animal.price));
